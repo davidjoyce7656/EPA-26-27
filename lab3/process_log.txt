@@ -1,0 +1,21 @@
+Sat Oct  3 17:02:00 UTC 2026
+Count: 1
+Count: 2
+Count: 3
+found the third item
+Count: 4
+Count: 5
+You didn't pass any paraemters to ./lab03_exercise2.sh
+The maximum number of processes NOT exceeded
+There are 116 processes running on this machine
+Sat Oct  3 17:02:07 UTC 2026
+Count: 1
+Count: 2
+Count: 3
+found the third item
+Count: 4
+Count: 5
+You passed in 2000 to ./lab03_exercise2.sh
+The maximum number of processes NOT exceeded
+There are 116 processes running on this machine
+Sat Oct  3 17:02:20 UTC 2026
