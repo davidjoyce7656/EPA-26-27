@@ -5,15 +5,7 @@
 date >> process_log.txt
 
 # for loop to count to 10
-for c in {1..5}; do
-	echo "Count: $c"
 
-	# if does not use == it uses -eq
-	# note the spaces around if [ ]
-	if [ $c -eq 3 ]; then
-		echo "found the third item"
-	fi
-done
 
 # how do we pass parameters from the command line
 # into this bash script. 
@@ -21,8 +13,12 @@ done
 # the first, second etc parameter into this script
 if [ -z $1 ]; then
 	echo "You didn't pass any paraemters to $0"
-else
-	echo "You passed in $1 to $0"
+	exit 1
+fi
+
+if [[ ! $1 =~ ^[0-9]+$ ]]; then
+	echo "You did not pass a numeric value"
+	exit 1
 fi
 
 # heres a brand new command: 
@@ -41,8 +37,21 @@ fi
 
 if [ "$2" = "screen" ]; then
 	echo "$message"
+	for c in {1..5}; do
+	echo "Count: $c"
+
+	# if does not use == it uses -eq
+	# note the spaces around if [ ]
+	if [ $c -eq 3 ]; then
+		echo "found the third item"
+	fi
+	
+	done
 elif [ "$2" = "file" ]; then
 	date >> process3.txt
 	echo "$message" >> process3.txt
+else
+	echo "Invalid choice. Please use screen or file"
+	exit 1
 fi
 

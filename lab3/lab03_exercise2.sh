@@ -19,8 +19,9 @@ done
 # into this bash script. 
 # we use the notation $1, $2 etc to represent
 # the first, second etc parameter into this script
-if [ -z $1 ]; then
+if [ -z "$1" ]; then
 	echo "You didn't pass any paraemters to $0" >> process_log.txt
+	exit 1
 else
 	echo "You passed in $1 to $0" >> process_log.txt 
 fi

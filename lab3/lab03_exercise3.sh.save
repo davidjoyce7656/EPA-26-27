@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# this is a comment
+
+date >> process_log.txt
+
+
+
+# how do we pass parameters from the command line
+# into this bash script. 
+# we use the notation $1, $2 etc to represent
+# the first, second etc parameter into this script
+
+# heres a brand new command: 
+# it calls ps -ef, then pipes it into word counter
+# then stores the result in ct
+ct=$(ps -ef | wc -l)
+
+
+
+
+
+if [ $ct -gt $1 ]; then
+	message="Maximum number of precesses exceeded"
+else
+	message="The maximum number of processes NOT exceeded"
+fi
+
+
+
+
+if [ "$2" = "screen" ]; then
+	echo "$message"
+	# for loop to count to 10
+	for c in {1..5}; do
+		echo "Count: $c"
+
+	# if does not use == it uses -eq
+	# note the spaces around if [ ]
+	if [ $c -eq 3 ]; then
+		echo "found the third item"
+	fi
+
+	done
+elif [ "$2" = "file" ]; then
+	date >> process3.txt
+	echo "$message" >> process3.txt
+	# for loop to count to 10
+	for c in {1..5}; do
+		echo "Count: $c" >> process3.txt
+
+	# if does not use == it uses -eq
+	# note the spaces around if [ ]
+	if [ $c -eq 3 ]; then
+		echo "found the third item" >> process3.txt
+	fi
+
+	done
+else
+	echo "Your choice is invalid, please choose either screen or file."
+	exit 1
+fi
+
