@@ -1,4 +1,4 @@
-cpu_ipunt=$1
+cpu_input=$1
 num_cpu=$(grep 'processor' /proc/cpuinfo | wc -l)
 website=$2
 
